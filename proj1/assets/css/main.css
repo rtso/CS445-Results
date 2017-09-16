@@ -1,0 +1,10 @@
+img {
+  height: 300px;
+  margin: 10px;
+  width: auto;
+}
+
+.small_image {
+  height: 70px;
+  width: auto;
+}

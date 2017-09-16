@@ -1,23 +1,147 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Project 1: Hybrid Images</title>
+		<link rel="stylesheet" href="assets/css/main.css">
   </head>
   <body>
     <h1>Project 1: Hybrid Images</h1>
     <div>
       <h2>Part 1: Hybrid Images</h2>
-        <div>hybrid image result 1</div>
-        <div>hybrid image result 2</div>
-        <div>hybrid image result 3</div>
+				<div>
+					My first hybrid image result is of me and a terracotta warrior from
+					the Pacific Science Center in Seattle. Since there is more texture on
+					the terracotta warrior than on me, I chose to use the high-pass filter
+					on the terracotta warrior and the low-pass filter on me.
+					<div>
+						<img src="images/hybrid_images/renee_soldier/renee.jpg" />
+						<img src="images/hybrid_images/renee_soldier/soldier.jpg" />
+						<img src="images/hybrid_images/renee_soldier/renee_soldier_hybrid.jpg" />
+						<img class="small_image" src="images/hybrid_images/renee_soldier/renee_soldier_hybrid.jpg" />
+					</div>
+				</div>
+				<br>
+        <div>
+					My second hybrid image is of me and a caricature that was drawn of me.
+					Since the photos were cropped from the same picture, I had to increase
+					the contrast on my face so that you could more easily see the shape when
+					the photo was blurred. I chose a sigma of 1 and a filter size of 20x20.
+          <div>
+            <img src="images/hybrid_images/renee_caricature/original.jpg" />
+          <div>
+					<div>
+						<img src="images/hybrid_images/renee_caricature/renee_edited.jpg" />
+						<img src="images/hybrid_images/renee_caricature/renee_fft.jpg" />
+						<img src="images/hybrid_images/renee_caricature/renee_low_freq.jpg" />
+						<img src="images/hybrid_images/renee_caricature/renee_low_freq_fft.jpg" />
+					</div>
+					I ran a low-pass filter on the photo of me. It removed a lot of the signals
+					in the high frequencies.
+					<div>
+						<img src="images/hybrid_images/renee_caricature/caricature.jpg" />
+						<img src="images/hybrid_images/renee_caricature/caricature_fft.jpg" />
+						<img src="images/hybrid_images/renee_caricature/caricature_high_freq.jpg" />
+						<img src="images/hybrid_images/renee_caricature/caricature_high_freq_fft.jpg" />
+					</div>
+					I ran a high-pass filter on the caricature drawing, retaining signal
+					in the higher frequencies.
+					<div>
+						<img src="images/hybrid_images/renee_caricature/renee_caricature_hybrid.jpg" />
+						<img class="small_image" src="images/hybrid_images/renee_caricature/renee_caricature_hybrid.jpg" />
+					</div>
+				</div>
+				<br>
+				<div>
+					My third hybrid photo is of photos of my friends and I doing outdoor
+					activities.
+					<div>
+						<img src="images/hybrid_images/outside/kayaking.jpg" />
+						<img src="images/hybrid_images/outside/climbing.jpg" />
+					</div>
+					I say this result is a fail because when you zoom out and the image
+					becomes really small, it's difficult to see what's going on in the image.
+					There's a lot of detail going on in the climbing image and you lose a lot of that
+					detail when you use a low-pass filter on the image. One way we can
+					fix this is by using the kayaking photo with the low-pass filter and
+					the climbing photo with the high-pass filter since the climbing photo
+					has more texture, thus higher frequencies.
+					<div>
+						<img src="images/hybrid_images/outside/kayaking_climbing_hybrid.jpg" />
+						<img class="small_image" src="images/hybrid_images/outside/kayaking_climbing_hybrid.jpg" />
+					</div>
+				</div>
     </div>
+
     <div>
       <h2>Part 2: Image Enhancement</h2>
-        <div>image enhancement task 1</div>
-        <div>image enhancement task 2</div>
+        <h3>Color Enhancement</h3>
+        I took a photo of Mount Rainier, converted it from RGB HSV space,
+        and used gamma transformation with gamma = 0.5 to increase the saturation.
+        <div>
+          <img src="images/image_enhancement/color_enhancement/rainier.jpg" />
+          <img src="images/image_enhancement/color_enhancement/rainier_color_enhanced.jpg" />
+        </div>
+        <h3>Color Shift</h3>
+        I took the same photo as before and converted it from RGB to Lab space.
+        For the enhanced image on the right of the original image, I shifted the red-green channel to
+        be more red. You can see that the deer's fur is more red. For the enhanced
+        image below the original image, I shifted the yellow-blue channel to be
+        less yellow. You can see that the grass looks less yellow and the photo
+        looks a lot cooler than the original.
+        <div>
+          <img src="images/image_enhancement/color_shift/deer.jpg" />
+          <img src="images/image_enhancement/color_shift/deer_more_red.jpg" />
+          <img src="images/image_enhancement/color_shift/deer_less_yellow.jpg" />
+
+        </div>
     </div>
     <div>
       <h2>Bells and Whistles</h2>
-
+      <h3>Colorized hybrid image</h3>
+      For the colorized hybrid image, I'm using the climbing and kayaking images
+      as before. Keep in mind that the un-colorized hybrid result turned out a failure.
+      Here I show the filtered images, and it looks like the filtered
+      kayaking photo did not retain a lot of of the color. It works better to use
+      color for the low-frequency component of the hybrid image because the color
+      helps us see distinguish shapes in the image that we otherwise would not see.
+      Keeping the color in the images works better in this case.
+      <div>
+        <img src="images/hybrid_images/outside/climbing.jpg" />
+        <img src="images/hybrid_images/outside/climbing_colorized.jpg" />
+      </div>
+      <div>
+        <img src="images/hybrid_images/outside/kayaking.jpg" />
+        <img src="images/hybrid_images/outside/kayaking_colorized.jpg" />
+      </div>
+      <div>
+        <img src="images/hybrid_images/outside/kayaking_climbing_hybrid_colorized.jpg" />
+        <img class="small_image" src="images/hybrid_images/outside/kayaking_climbing_hybrid_colorized.jpg" />
+      </div>
+      <h3>Gaussian and Laplacian pyramids</h3>
+      Here are the image pyramids for the example with the caricature.
+      <div>
+        <img src="images/hybrid_images/renee_caricature/pyramids/gaussian1.jpg" />
+        <img src="images/hybrid_images/renee_caricature/pyramids/gaussian2.jpg" />
+        <img src="images/hybrid_images/renee_caricature/pyramids/gaussian3.jpg" />
+        <img src="images/hybrid_images/renee_caricature/pyramids/gaussian4.jpg" />
+        <img src="images/hybrid_images/renee_caricature/pyramids/gaussian5.jpg" />
+      <div>
+      <div>
+        <img src="images/hybrid_images/renee_caricature/pyramids/laplacian1.jpg" />
+        <img src="images/hybrid_images/renee_caricature/pyramids/laplacian2.jpg" />
+        <img src="images/hybrid_images/renee_caricature/pyramids/laplacian3.jpg" />
+        <img src="images/hybrid_images/renee_caricature/pyramids/laplacian4.jpg" />
+        <img src="images/hybrid_images/renee_caricature/pyramids/laplacian5.jpg" />
+      </div>
+      <h3>Contrast Enhancement</h3>
+      Here is the third image enhancement task. I chose a photo of my sister rock
+      climbing. I used gamma transformation on the image because the pixels on
+      the image occupy the full range of intensiy, but I would just like to make
+      some of the color stand out more. I am used a gamme of 1.5.
+      <div>
+        <img src="images/image_enhancement/contrast_enhancement/climbing.jpg" />
+        <img src="images/image_enhancement/contrast_enhancement/climbing_contrast_enhanced.jpg" />
+      </div>
     </div>
   </body>
 </html>
