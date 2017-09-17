@@ -63,8 +63,9 @@
 					There's a lot of detail going on in the climbing image and you lose a lot of that
 					detail when you use a low-pass filter on the image. One way we can
 					fix this is by using the kayaking photo with the low-pass filter and
-					the climbing photo with the high-pass filter since the climbing photo
-					has more texture, thus higher frequencies.
+					the climbing photo with the high-pass filter. Since the climbing photo
+          has more texture, when using a high-pass filter, the texture would be
+          retained and we would be able to distinguish the photo. 
 					<div>
 						<img src="images/hybrid_images/outside/kayaking_climbing_hybrid.jpg" />
 						<img class="small_image" src="images/hybrid_images/outside/kayaking_climbing_hybrid.jpg" />
@@ -75,7 +76,7 @@
     <div>
       <h2>Part 2: Image Enhancement</h2>
         <h3>Color Enhancement</h3>
-        I took a photo of Mount Rainier, converted it from RGB HSV space,
+        I took a photo of Mount Rainier, converted it from RGB to HSV space,
         and used gamma transformation with gamma = 0.5 to increase the saturation.
         <div>
           <img src="images/image_enhancement/color_enhancement/rainier.jpg" />
