@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106549871-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-106549871-1');
+    </script>
+    <title>Project 2: Image Quilting</title>
+	<link rel="stylesheet" href="assets/css/main.css">
+  </head>
+  <body>
+    <h1>Project 2: Image Quilting</h1>
+    <div>
+      <h2>Part 1: Texture Synthesis</h2>
+				First texture synthesis result is a photograph of Yayoi Kusama's
+        painting of white Infinity Nets. You can see that the randomly
+        sampled texture has lots of unnatural edges. For the simple quilt
+        algorithm that calculates the SSD, there are less edges, but we can
+        still see some edge artifacts. The best result is the quilting
+        algorithm that incorporates seam finding. The texture synthesis algorithm
+        begins choosing a random patch from the sample. It then generates the
+        first row and column based on the first patch and the subsequent
+        patches using the SSD. Wherever two patches overlap, the algorithm uses
+        a seam finding method to find the best path through two overlapping pieces
+        cut through.
+				<div>
+          <figure>
+            <img src="images/kusama.jpg" />
+            <figcaption>Sample</figcaption>
+          </figure>
+          <figure>
+            <img src="images/kusama_random.jpg" />
+            <figcaption>Random</figcaption>
+          </figure>
+          <figure>
+            <img src="images/kusama_simple.jpg" />
+            <figcaption>Simple</figcaption>
+          </figure>
+          <figure>
+            <img src="images/kusama_cut.jpg" />
+            <figcaption>Cut</figcaption>
+          </figure>
+				</div>
+			</div>
+      Outsize: 1000. Patchsize: 400. Overlap: 100. Tol: 0.01.
+      <br><br>
+			To illustrate the seam finding algorithm, I will use a texture of stones.
+      <div>
+        <figure>
+          <img src="images/stones.jpg" />
+          <figcaption>Sample</figcaption>
+        </figure>
+        <figure>
+          <img src="images/stones_random.jpg" />
+          <figcaption>Random</figcaption>
+        </figure>
+        <figure>
+          <img src="images/stones_simple.jpg" />
+          <figcaption>Simple</figcaption>
+        </figure>
+        <figure>
+          <img src="images/stones_cut.jpg" />
+          <figcaption>Cut</figcaption>
+        </figure>
+      </div>
+      Outsize: 1000. Patchsize: 400. Overlap: 100. Tol: 0.01.
+      <br><br>
+      Here I am showing the overlapping section between the template and
+      the sample. The red line in the cost image shows the minimum cost cut
+      that the algorithm found. Dark blue indicates lower cost and red and
+      yellow indicate higher cost. After cutting both the template and the
+      sample using the path found, we stitched together the sections and
+      the result looks seamless.
+      <div>
+        <figure>
+          <img class="large_img" src="images/stones_cut_template.jpg" />
+          <figcaption>Template</figcaption>
+        </figure>
+        <figure>
+          <img class="large_img" src="images/stones_cut_sample.jpg" />
+          <figcaption>Sample</figcaption>
+        </figure>
+        <figure>
+          <img class="large_img" src="images/stones_cut_cost.jpg" />
+          <figcaption>Cost image</figcaption>
+        </figure>
+        <figure>
+          <img class="large_img" src="images/stones_cut_template_cut.jpg" />
+          <figcaption>Template with cut</figcaption>
+        </figure>
+        <figure>
+          <img class="large_img" src="images/stones_cut_sample_cut.jpg" />
+          <figcaption>Sample with cut</figcaption>
+        </figure>
+        <figure>
+          <img class="large_img" src="images/stones_cut_result.jpg" />
+          <figcaption>Result</figcaption>
+        </figure>
+      </div>
+      <br><br>
+      Here are some more results that I got.
+      <br>
+      <div>
+        <figure>
+          <img src="images/birds.jpg" />
+          <figcaption>Sample</figcaption>
+        </figure>
+        <figure>
+          <img src="images/birds_random.jpg" />
+          <figcaption>Random</figcaption>
+        </figure>
+        <figure>
+          <img src="images/birds_simple.jpg" />
+          <figcaption>Simple</figcaption>
+        </figure>
+        <figure>
+          <img src="images/birds_cut.jpg" />
+          <figcaption>Cut</figcaption>
+        </figure>
+      </div>
+      Outsize: 1000. Patchsize: 400. Overlap: 100. Tol: 0.01.
+      <br><br>
+      <div>
+        <figure>
+          <img src="images/wave.jpg" />
+          <figcaption>Sample</figcaption>
+        </figure>
+        <figure>
+          <img src="images/wave_random.jpg" />
+          <figcaption>Random</figcaption>
+        </figure>
+        <figure>
+          <img src="images/wave_simple.jpg" />
+          <figcaption>Simple</figcaption>
+        </figure>
+        <figure>
+          <img src="images/wave_cut.jpg" />
+          <figcaption>Cut</figcaption>
+        </figure>
+      </div>
+      Outsize: 1000. Patchsize: 200. Overlap: 100. Tol: 0.01.
+      <br><br>
+      I would consider this one a fail. I found that textures with faces on them
+      are very difficult to make it look natural through this algorithm. Although
+      I removed most of the unnatural edges, some of the faces are cut off and
+      joined to others.
+      <div>
+        <figure>
+          <img src="images/faces.jpg" />
+          <figcaption>Sample</figcaption>
+        </figure>
+        <figure>
+          <img src="images/faces_random.jpg" />
+          <figcaption>Random</figcaption>
+        </figure>
+        <figure>
+          <img src="images/faces_simple.jpg" />
+          <figcaption>Simple</figcaption>
+        </figure>
+        <figure>
+          <img src="images/faces_cut.jpg" />
+          <figcaption>Cut</figcaption>
+        </figure>
+      </div>
+      Outsize: 1000. Patchsize: 400. Overlap: 100. Tol: 0.01.
+      <br><br>
+      <div>
+        <figure>
+          <img src="images/white_small.jpg" />
+          <figcaption>Sample</figcaption>
+        </figure>
+        <figure>
+          <img src="images/white_random.jpg" />
+          <figcaption>Random</figcaption>
+        </figure>
+        <figure>
+          <img src="images/white_simple.jpg" />
+          <figcaption>Simple</figcaption>
+        </figure>
+        <figure>
+          <img src="images/white_cut.jpg" />
+          <figcaption>Cut</figcaption>
+        </figure>
+      </div>
+      Outsize: 200. Patchsize: 10. Overlap: 4. Tol: 0.01.
+    </div>
+
+    <div>
+      <h2>Part 2: Texture Transfer</h2>
+        I took the sketch texture and transferred it onto the image of Feynman.
+        Texture transfer works similarly to the quilting algorithm I described
+        earlier. The main difference is that I took the constraint image, converted
+        it to grayscale, and added a new cost to the SSD calculation. The new
+        cost measures the SSD between the intensities of patches from the
+        texture image and the constraint image.
+        <div>
+          <figure>
+            <img src="images/feynman.jpg" />
+            <figcaption>Constraint</figcaption>
+          </figure>
+          <figure>
+            <img src="images/sketch.jpg" />
+            <figcaption>Texture</figcaption>
+          </figure>
+          <figure>
+            <img src="images/feynman_sketch.jpg" />
+            <figcaption>Result</figcaption>
+          </figure>
+        </div>
+        Patchsize: 20. Overlap: 10. Tol: 0.01. Alpha: 0.5.
+        <br><br>
+        For my other texture transfer example, I used my previous texture from
+        Kusama and transferred it to an image of Beyonce.
+        <div>
+          <figure>
+            <img src="images/beyonce.jpg" />
+            <figcaption>Constraint</figcaption>
+          </figure>
+          <figure>
+            <img src="images/kusama.jpg" />
+            <figcaption>Texture</figcaption>
+          </figure>
+          <figure>
+            <img src="images/beyonce_kusama.jpg" />
+            <figcaption>Result</figcaption>
+          </figure>
+        </div>
+        Patchsize: 20. Overlap: 10. Tol: 0.01. Alpha: 0.5.
+    </div>
+  </body>
+</html>
