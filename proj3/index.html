@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106549871-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-106549871-1');
+    </script>
+    <title>Project 2: Image Quilting</title>
+	<link rel="stylesheet" href="assets/css/main.css">
+  </head>
+  <body>
+    <h1>Project 3: Gradient-Domain Fusion</h1>
+
+    <h2>Toy Problem</h2>
+    The error I got for the toy problem was 6.1843e-14.
+
+    <h2>Poisson Blending</h2>
+    My favorite blending result is this photo of Buzz and Woody flying on the
+    quad. Initially, the source blended onto the target was very dark because
+    the background color for the source image was much lighter than the
+    color of the sky for the target image. To make the blended result look more
+    realistic, I had to increase the contrast of the source image and play
+    with the highlights and shadows to make the two blue colors as similar as
+    possible. The Poisson blending algorithm uses least squares to calculate
+    the best pixels to be copied onto the target region that match a constraint.
+    The constraint I used minimizes the difference of the gradients between
+    a source pixel and its neighboring pixels, thereby retaining the gradient in
+    the source image, but reusing the colors in the target image.
+    <div>
+      <figure>
+        <img src="images/flying.jpg"/>
+        <figcaption>Source</figcaption>
+      </figure>
+      <figure>
+        <img src="images/foellinger.jpg"/>
+        <figcaption>Target</figcaption>
+      </figure>
+    </div>
+    <div>
+      <figure>
+        <img src="images/toy_story_uiuc_cut.jpg"/>
+        <figcaption>Pixels copied</figcaption>
+      </figure>
+      <figure>
+        <img src="images/toy_story_uiuc.jpg"/>
+        <figcaption>Blended</figcaption>
+      </figure>
+    </div>
+
+    <br><br>
+    For my second example, I am blending Ted Cruz's facial features onto Ed
+    Sheeran's body. The result is Ted Sheeran.
+    <div>
+      <figure>
+        <img src="images/ted_cruz.jpg"/>
+        <figcaption>Source</figcaption>
+      </figure>
+      <figure>
+        <img src="images/ed_sheeran.jpg"/>
+        <figcaption>Target</figcaption>
+      </figure>
+    </div>
+    <div>
+      <figure>
+        <img src="images/ted_sheeran_cut.jpg"/>
+        <figcaption>Pixels copied</figcaption>
+      </figure>
+      <figure>
+        <img src="images/ted_sheeran.jpg"/>
+        <figcaption>Blended</figcaption>
+      </figure>
+    </div>
+
+    <br><br>
+    One example that did not work so well was when I tried to blend Maria from
+    the movie Sound of Music onto an image of the quad. I speculate that this
+    resut is a failure due to the difference of background colors. Also in the
+    photo of Maria, the background consists of two very bright, contrasting
+    colors, the blue and the green. This is why the bottom of the source looks
+    like what it should look like, but the color changes as you move up the
+    source image.
+    <div>
+      <figure>
+        <img src="images/maria.jpg"/>
+        <figcaption>Source</figcaption>
+      </figure>
+      <figure>
+        <img src="images/uiuc.jpg"/>
+        <figcaption>Target</figcaption>
+      </figure>
+    </div>
+    <div>
+      <figure>
+        <img src="images/maria_uiuc_cut.jpg"/>
+        <figcaption>Pixels copied</figcaption>
+      </figure>
+      <figure>
+        <img src="images/maria_uiuc.jpg"/>
+        <figcaption>Blended</figcaption>
+      </figure>
+    </div>
+
+    <br><br>
+    The last result of Poisson blending.
+    <div>
+      <figure>
+        <img class="large_img" src="images/penguin_cut.jpg"/>
+        <figcaption>Pixels copied</figcaption>
+      </figure>
+      <figure>
+        <img class="large_img" src="images/penguin_blended.jpg"/>
+        <figcaption>Blended</figcaption>
+      </figure>
+    </div>
+
+
+    <h2>Mixed Gradients</h2>
+    For this problem, I used an image of text on top of an adventurous-looking
+    image to create an inspirational photo, one that you would typically find on
+    Pinterest. You can see that part of the background peeks through the
+    lettering. This is because the gradient of the target image was found to be
+    greater than the gradient of the source image, so the gradient of the target
+    image was retained.
+    <div>
+      <figure>
+        <img src="images/quote.jpg"/>
+        <figcaption>Source</figcaption>
+      </figure>
+      <figure>
+        <img src="images/adventure.jpg"/>
+        <figcaption>Target</figcaption>
+      </figure>
+    </div>
+    <div>
+      <figure>
+        <img src="images/adventure_quote_cut.jpg"/>
+        <figcaption>Pixels copied</figcaption>
+      </figure>
+      <figure>
+        <img src="images/adventure_quote.jpg"/>
+        <figcaption>Blended</figcaption>
+      </figure>
+    </div>
+
+    For my second example of mixed gradients, I chose to display some tattoos
+    on a girl's collarbone. The tattoo on the left is done with normal Poisson
+    and the tattoo on the right is done with mixed gradient blending. For the
+    tattoo using mixed gradeint blending, you can see that some of the shadows
+    on the girl's skin peeks through the ink of the tattoo. The tattoo on the
+    left done with normal Poisson blending looks less natural.
+    <div>
+      <figure>
+        <img src="images/roses.jpg"/>
+        <figcaption>Source</figcaption>
+      </figure>
+      <figure>
+        <img src="images/collarbone.jpg"/>
+        <figcaption>Target</figcaption>
+      </figure>
+    </div>
+    <div>
+      <figure>
+        <img class="large_img" src="images/collarbone_two_roses.jpg"/>
+        <figcaption>Poisson blending on left, mixed gradient blending on right</figcaption>
+      </figure>
+    </div>
+
+  </body>
+</html>
