@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106549871-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-106549871-1');
+    </script>
+    <title>Project 4: Image-Based Lighting</title>
+	<link rel="stylesheet" href="assets/css/main.css">
+  </head>
+  <body>
+    <h1>Project 4: Image-Based Lighting</h1>
+
+    <h2>Recovering HDR Radiance Maps</h2>
+
+    <h3>Naive LDR merging</h3>
+
+    <div>
+      <figure>
+        <figcaption>Low exposure (t=1/160s)</figcaption>
+        <img src="images/160.jpg" />
+      </figure>
+      <figure>
+        <figcaption>Medium exposure (t=1/40s)</figcaption>
+        <img src="images/40.jpg" />
+      </figure>
+      <figure>
+        <figcaption>High exposure (t=1/10s)</figcaption>
+        <img src="images/10.jpg" />
+      </figure>
+      <figure>
+        <figcaption>Naive merge</figcaption>
+        <img src="images/naive.jpg" />
+      </figure>
+    </div>
+
+    Estimated log irradiances
+    <div>
+      <figure>
+        <img src="images/naive_irradiance_160.jpg" />
+      </figure>
+      <figure>
+        <img src="images/naive_irradiance_40.jpg" />
+      </figure>
+      <figure>
+        <img src="images/naive_irradiance_10.jpg" />
+      </figure>
+      <figure>
+        <img src="images/naive_irradiance_1.jpg" />
+      </figure>
+    </div>
+
+    <h3>LDR merging without under- and over-exposed regions</h3>
+
+    <div>
+      <figure>
+        <figcaption>Low exposure (t=1/160s)</figcaption>
+        <img src="images/160.jpg" />
+      </figure>
+      <figure>
+        <figcaption>Medium exposure (t=1/40s)</figcaption>
+        <img src="images/40.jpg" />
+      </figure>
+      <figure>
+        <figcaption>High exposure (t=1/10s)</figcaption>
+        <img src="images/10.jpg" />
+      </figure>
+      <figure>
+        <figcaption>Simple merge</figcaption>
+        <img src="images/simple.jpg" />
+      </figure>
+    </div>
+
+    Estimated log irradiances
+    <div>
+      <figure>
+        <img src="images/simple_irradiance_160.jpg" />
+      </figure>
+      <figure>
+        <img src="images/simple_irradiance_40.jpg" />
+      </figure>
+      <figure>
+        <img src="images/simple_irradiance_10.jpg" />
+      </figure>
+      <figure>
+        <img src="images/simple_irradiance_1.jpg" />
+      </figure>
+    </div>
+
+    <h3>LDR merging and response function estimation</h3>
+
+    <div>
+      <figure>
+        <figcaption>Low exposure (t=1/160s)</figcaption>
+        <img src="images/160.jpg" />
+      </figure>
+      <figure>
+        <figcaption>Medium exposure (t=1/40s)</figcaption>
+        <img src="images/40.jpg" />
+      </figure>
+      <figure>
+        <figcaption>High exposure (t=1/10s)</figcaption>
+        <img src="images/10.jpg" />
+      </figure>
+      <figure>
+        <figcaption>Gsolve merge</figcaption>
+        <img src="images/gsolve.jpg" />
+      </figure>
+    </div>
+
+    Estimated log irradiances
+    <div>
+      <figure>
+        <img src="images/gsolve_irradiance_160.jpg" />
+      </figure>
+      <figure>
+        <img src="images/gsolve_irradiance_40.jpg" />
+      </figure>
+      <figure>
+        <img src="images/gsolve_irradiance_10.jpg" />
+      </figure>
+      <figure>
+        <img src="images/gsolve_irradiance_1.jpg" />
+      </figure>
+    </div>
+
+    Estimate function g
+    <div>
+      <figure>
+        <figcaption>Red channel</figcaption>
+        <img src="images/g_red.jpg" />
+      </figure>
+      <figure>
+        <figcaption>Green channel</figcaption>
+        <img src="images/g_green.jpg" />
+      </figure>
+      <figure>
+        <figcaption>Blue channel</figcaption>
+        <img src="images/g_blue.jpg" />
+      </figure>
+    <div>
+
+    <h2>Panoramic transformation</h2>
+
+    <figure>
+      <img src="images/latlon.jpg" />
+    </figure>
+
+    <h2>Rendering synthetic objects into photographs</h2>
+
+    <figure>
+      <figcaption>Background image</figcaption>
+      <img src="images/background.jpg"</figcaption>
+    </figure>
+
+    <div>
+      <figure>
+        <figcaption>Rendering with objects</figcaption>
+        <img class="large_img" src="images/rendered_with_objects_1.png"</figcaption>
+      </figure>
+      <figure>
+        <figcaption>Rendering without objects</figcaption>
+        <img class="large_img" src="images/rendered_without_objects_1.png"</figcaption>
+      </figure>
+    </div>
+    <div>
+      <figure>
+        <figcaption>Object mask</figcaption>
+        <img class="large_img" src="images/rendered_object_mask_1.png"</figcaption>
+      </figure>
+      <figure>
+        <figcaption>Result</figcaption>
+        <img class="large_img" src="images/rendered_result_1.jpg"</figcaption>
+      </figure>
+    </div>
+
+    <div>
+      <figure>
+        <figcaption>Rendering with objects</figcaption>
+        <img class="large_img" src="images/rendered_with_objects_2.png"</figcaption>
+      </figure>
+      <figure>
+        <figcaption>Rendering without objects</figcaption>
+        <img class="large_img" src="images/rendered_without_objects_2.png"</figcaption>
+      </figure>
+    </div>
+    <div>
+      <figure>
+        <figcaption>Object mask</figcaption>
+        <img class="large_img" src="images/rendered_object_mask_2.png"</figcaption>
+      </figure>
+      <figure>
+        <figcaption>Result</figcaption>
+        <img class="large_img" src="images/rendered_result_2.jpg"</figcaption>
+      </figure>
+    </div>
+
+
+  </body>
+</html>
